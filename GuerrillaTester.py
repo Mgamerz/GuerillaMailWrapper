@@ -7,7 +7,7 @@ import re
 
 class GuerrillaTests(unittest.TestCase):
     def test_get_email(self):
-        apisession = guerilla.GuerrillaAPI()
+        apisession = guerrilla.GuerrillaAPI()
         apisession.get_email_address()
         self.assertTrue(re.match(r"[^@]+@[^@]+\.[^@]+", apisession.EMAIL))
         #test
