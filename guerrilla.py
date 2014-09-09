@@ -3,6 +3,7 @@ __author__ = 'mgamerz'
 import requests
 import copy
 
+
 class GuerrillaAPI:
 
     def __init__(self):
@@ -51,14 +52,13 @@ class GuerrillaAPI:
     def fetch_mail(self):
         pass
 
-api = GuerrillaAPI()
+'''api = GuerrillaAPI()
 api.get_email_address()
 emails = api.get_email_list()
 for mail in emails:
     api.print_email(mail)
 
-'''emails = get_email_list()
+emails = get_email_list()
 #print(emails)
 for mail in emails:
     print_email(mail)'''
-git
