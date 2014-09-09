@@ -12,6 +12,11 @@ class GuerrillaTests(unittest.TestCase):
         self.assertTrue(re.match(r"[^@]+@[^@]+\.[^@]+", apisession.EMAIL))
         #test
 
+    def test_original_inbox(self):
+        apisession = guerrilla.GuerrillaAPI()
+        apisession.get_email_address()
+        emails = apisession.get_email_list()
+        self.assertTrue(emails)
 
 if __name__ == '__main__':
     unittest.main()
