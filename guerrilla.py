@@ -1,5 +1,5 @@
 __author__ = 'mgamerz'
-
+__version__ = '0.1'
 import requests
 import copy
 
