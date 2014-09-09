@@ -1,0 +1,11 @@
+language: python
+python:
+  - "3.2"
+  - "3.3"
+  - "3.4"
+# command to run tests
+
+script: 'coverage run  --source=GuerrillaAPI GuerrillaTester.py'
+
+after_success:
+  coveralls
