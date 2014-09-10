@@ -31,6 +31,7 @@ class GuerrillaAPI:
     def get_email_list(self):
         if not self.SESSION_COOKIE:
             print("ERROR: You need to get the email address first to get a session token.")
+            return
         url_params = copy.deepcopy(self.URL_PARAMS)
         url_params['f'] = 'get_email_list'
         url_params['offset'] = '0'
@@ -49,16 +50,25 @@ class GuerrillaAPI:
         return
 
 
-    def fetch_mail(self):
-        pass
+    def fetch_mail(self, id):
+        """
+        Fetches the full information about an email.
+        :param id: The ID of the email.
+        :return: A json array containing the email, or None if it was not found.
+        """
 
-'''api = GuerrillaAPI()
-api.get_email_address()
-emails = api.get_email_list()
-for mail in emails:
-    api.print_email(mail)
+        if not self.SESSION_COOKIE:
+            print("ERROR: You need to get the email address first to get a session token.")
+            return
+        url_params = copy.deepcopy(self.URL_PARAMS)
+        url_params['f'] = 'fetch_email'
+        url_params['id'] = id
+        email = requests.get(self.GUERRILLA_URL, params=url_params, cookies=self.SESSION_COOKIE)
+        if not email:
+            print('RETURNED FALSE!')
+            return
 
-emails = get_email_list()
-#print(emails)
-for mail in emails:
-    print_email(mail)'''
+
+        #print(email.text)
+        #return email_list.json()['list']
+

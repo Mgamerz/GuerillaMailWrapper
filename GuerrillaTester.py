@@ -14,9 +14,10 @@ class GuerrillaTests(unittest.TestCase):
 
     def test_original_inbox(self):
         apisession = guerrilla.GuerrillaAPI()
+        self.assertEquals(None, apisession.get_email_list())
         apisession.get_email_address()
         emails = apisession.get_email_list()
-        self.assertTrue(emails)
+        self.assertNotEquals(None, apisession.get_email_list())
 
 if __name__ == '__main__':
     unittest.main()
